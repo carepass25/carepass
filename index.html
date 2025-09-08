@@ -60,7 +60,7 @@
         <div>
           <label class="block font-medium mb-1">CarePass ID (via NFC):</label>
           <div class="flex space-x-2">
-            <input id="carePassIdInputReg" name="carePassId" type="text" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-400" />
+            <input id="carePassIdInputReg" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-400" />
             <button type="button" id="scanNfcBtnReg" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
           </div>
         </div>
@@ -74,7 +74,7 @@
       <h2 class="text-lg sm:text-xl font-semibold mb-4">📝 Update Your CarePass Record</h2>
       <form id="updateForm" class="space-y-4">
         <div class="flex space-x-2">
-          <input id="carePassIdInputUpd" name="carePassId" type="text" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+          <input id="carePassIdInputUpd" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
           <button type="button" id="scanNfcBtnUpd" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
         </div>
         <input name="fullName" type="text" required placeholder="Full Name" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
@@ -109,7 +109,7 @@
       <h2 class="text-lg sm:text-xl font-semibold mb-4">🧑‍⚕ Doctor Access</h2>
       <form id="accessForm" class="space-y-4">
         <div class="flex space-x-2">
-          <input id="carePassIdInputAcc" name="carePassId" type="text" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-indigo-400" />
+          <input id="carePassIdInputAcc" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-indigo-400" />
           <button type="button" id="scanNfcBtnAcc" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
         </div>
         <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded text-base">Access Record</button>
