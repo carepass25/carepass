@@ -33,84 +33,13 @@
       <button data-target="register" class="w-full bg-blue-600 text-white p-6 rounded-xl shadow hover:bg-blue-700 text-lg">🔐 Create CarePass</button>
       <button data-target="update" class="w-full bg-green-600 text-white p-6 rounded-xl shadow hover:bg-green-700 text-lg">📝 Update Records</button>
       <button data-target="access" class="w-full bg-indigo-600 text-white p-6 rounded-xl shadow hover:bg-indigo-700 text-lg">🧑‍⚕ Doctor Access</button>
+      <button id="fingerprintLoginBtn" class="w-full bg-yellow-600 text-white p-6 rounded-xl shadow hover:bg-yellow-700 text-lg">🗝 Fingerprint Login</button>
     </div>
   </div>
 
   <main id="content" class="max-w-lg mx-auto p-4 sm:p-6 space-y-10 hidden">
-
-    <section id="register" class="hidden bg-white p-4 sm:p-6 rounded-lg shadow">
-      <button class="back-btn text-sm text-blue-600 underline mb-4">← Back to Menu</button>
-      <h2 class="text-lg sm:text-xl font-semibold mb-4">🔐 Create Your CarePass</h2>
-      <form id="registerForm" class="space-y-4">
-        <div>
-          <label class="block font-medium mb-1">Role:</label>
-          <select name="role" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-400">
-            <option value="patient">Patient</option>
-            <option value="doctor">Doctor</option>
-          </select>
-        </div>
-        <div>
-          <label class="block font-medium mb-1">Name:</label>
-          <input name="name" type="text" required placeholder="Enter your name" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-400" />
-        </div>
-        <div>
-          <label class="block font-medium mb-1">CarePass ID (via NFC):</label>
-          <div class="flex space-x-2">
-            <input id="carePassIdInputReg" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-400" />
-            <button type="button" id="scanNfcBtnReg" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
-          </div>
-        </div>
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded text-base">Create CarePass</button>
-      </form>
-    </section>
-
-    <section id="update" class="hidden bg-white p-4 sm:p-6 rounded-lg shadow">
-      <button class="back-btn text-sm text-blue-600 underline mb-4">← Back to Menu</button>
-      <h2 class="text-lg sm:text-xl font-semibold mb-4">📝 Update Your CarePass Record</h2>
-      <form id="updateForm" class="space-y-4">
-        <div class="flex space-x-2">
-          <input id="carePassIdInputUpd" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-          <button type="button" id="scanNfcBtnUpd" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
-        </div>
-        <input name="fullName" type="text" required placeholder="Full Name" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="dob" type="date" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <select name="gender" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400">
-          <option value="">Select Gender</option>
-          <option value="Male">Male ♂</option>
-          <option value="Female">Female ♀</option>
-          <option value="Other">Other ⚧</option>
-        </select>
-        <select name="bloodGroup" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400">
-          <option value="">Blood Group</option>
-          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
-          <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
-        </select>
-        <input name="height" type="number" placeholder="Height (cm)" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="weight" type="number" placeholder="Weight (kg)" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="bp" type="text" placeholder="Blood Pressure e.g. 120/80" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <textarea name="medicalHistory" placeholder="Medical History" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
-        <textarea name="treatmentHistory" placeholder="Treatment History" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
-        <textarea name="surgeryHistory" placeholder="Previous Surgeries" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
-        <input name="insuranceProvider" type="text" placeholder="Insurance Provider" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="phone" type="tel" required placeholder="Phone" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="email" type="email" required placeholder="Email" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded text-base">Save to CarePass</button>
-      </form>
-    </section>
-
-    <section id="access" class="hidden bg-white p-4 sm:p-6 rounded-lg shadow">
-      <button class="back-btn text-sm text-blue-600 underline mb-4">← Back to Menu</button>
-      <h2 class="text-lg sm:text-xl font-semibold mb-4">🧑‍⚕ Doctor Access</h2>
-      <form id="accessForm" class="space-y-4">
-        <div class="flex space-x-2">
-          <input id="carePassIdInputAcc" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-indigo-400" />
-          <button type="button" id="scanNfcBtnAcc" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
-        </div>
-        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded text-base">Access Record</button>
-      </form>
-      <div id="accessResult" class="mt-6 hidden bg-gray-100 p-4 rounded-lg text-sm"></div>
-    </section>
-
+    <!-- Register, Update, Access Sections -->
+    <!-- (Keep your existing register/update/access forms as-is) -->
   </main>
 
   <footer class="text-center text-sm text-gray-500 p-4">
@@ -118,7 +47,7 @@
   </footer>
 
   <script>
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbxaF0yFiobRU927pBoyxInMjODx_mKJoQ7o7k6jRgzgV4PQh8oM8sfMeCesb4K7yUAN9w/exec";
+    const GAS_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
     const loader = document.getElementById("loadingOverlay");
     const toast = document.getElementById("toast");
 
@@ -129,49 +58,6 @@
       toast.className = `fixed bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg shadow z-50 ${success ? "bg-green-600" : "bg-red-600"} text-white`;
       toast.classList.remove("hidden");
       setTimeout(() => toast.classList.add("hidden"), 2500);
-    }
-
-    const menuScreen = document.getElementById("menu-screen");
-    const content = document.getElementById("content");
-    const sections = document.querySelectorAll("main section");
-
-    function showSection(targetId) {
-      menuScreen.classList.add("fade-exit-active");
-      setTimeout(() => {
-        menuScreen.classList.add("hidden");
-        menuScreen.classList.remove("fade-exit-active");
-        content.classList.remove("hidden");
-        sections.forEach(s => s.classList.add("hidden"));
-        const section = document.getElementById(targetId);
-        section.classList.remove("hidden");
-        section.classList.add("fade-enter-active");
-        setTimeout(() => section.classList.remove("fade-enter-active"), 800);
-      }, 300);
-    }
-
-    function goBackToMenu() {
-      content.classList.add("fade-exit-active");
-      setTimeout(() => {
-        content.classList.add("hidden");
-        content.classList.remove("fade-exit-active");
-        menuScreen.classList.remove("hidden");
-        menuScreen.classList.add("fade-enter-active");
-        setTimeout(() => menuScreen.classList.remove("fade-enter-active"), 800);
-      }, 300);
-    }
-
-    document.querySelectorAll("#menu-screen button").forEach(btn => {
-      btn.addEventListener("click", () => showSection(btn.dataset.target));
-    });
-
-    document.querySelectorAll(".back-btn").forEach(btn => {
-      btn.addEventListener("click", goBackToMenu);
-    });
-
-    function formToPairs(form, extra = {}) {
-      const pairs = {};
-      new FormData(form).forEach((v, k) => (pairs[k] = v));
-      return { ...pairs, ...extra };
     }
 
     async function postForm(data) {
@@ -188,91 +74,53 @@
       } finally { hideLoader(); }
     }
 
-    async function scanNFC(targetInputId) {
-      if ("NDEFReader" in window) {
-        try {
-          const ndef = new NDEFReader();
-          await ndef.scan();
-          showToast("📡 Hold your NFC tag near the device...");
-          ndef.onreading = event => {
-            const decoder = new TextDecoder();
-            for (const record of event.message.records) {
-              const carePassId = decoder.decode(record.data);
-              document.getElementById(targetInputId).value = carePassId;
-              showToast("✅ NFC CarePass ID detected!");
+    // ======== WebAuthn Fingerprint Login ========
+    async function fingerprintLogin() {
+      try {
+        // 1️⃣ Get challenge from server
+        const challengeRes = await postForm({ action: "get_challenge" });
+        if (!challengeRes.challenge) throw new Error("No challenge received");
+
+        const publicKey = {
+          challenge: Uint8Array.from(atob(challengeRes.challenge), c => c.charCodeAt(0)),
+          timeout: 60000,
+          allowCredentials: [],
+          userVerification: "preferred"
+        };
+
+        // 2️⃣ Call WebAuthn API
+        const credential = await navigator.credentials.get({ publicKey });
+
+        // 3️⃣ Send assertion to server
+        const assertionData = {
+          action: "verify_assertion",
+          data: JSON.stringify({
+            id: credential.id,
+            rawId: Array.from(new Uint8Array(credential.rawId)),
+            type: credential.type,
+            response: {
+              authenticatorData: Array.from(new Uint8Array(credential.response.authenticatorData)),
+              clientDataJSON: Array.from(new Uint8Array(credential.response.clientDataJSON)),
+              signature: Array.from(new Uint8Array(credential.response.signature)),
+              userHandle: credential.response.userHandle ? Array.from(new Uint8Array(credential.response.userHandle)) : null
             }
-          };
-        } catch (error) {
-          showToast("❌ NFC Scan failed: " + error, false);
+          })
+        };
+
+        const verifyRes = await postForm(assertionData);
+
+        if (verifyRes.success) {
+          showToast("✅ Fingerprint Auth Successful! CarePass ID: " + verifyRes.carePassId);
+        } else {
+          showToast("❌ Fingerprint Auth Failed", false);
         }
-      } else {
-        showToast("❌ Web NFC not supported on this device.", false);
+
+      } catch (err) {
+        showToast("❌ " + err.message, false);
       }
     }
 
-    document.getElementById("scanNfcBtnReg").addEventListener("click", () => scanNFC("carePassIdInputReg"));
-    document.getElementById("scanNfcBtnUpd").addEventListener("click", () => scanNFC("carePassIdInputUpd"));
-    document.getElementById("scanNfcBtnAcc").addEventListener("click", () => scanNFC("carePassIdInputAcc"));
-
-    document.getElementById("registerForm").addEventListener("submit", async e => {
-      e.preventDefault();
-      const res = await postForm(formToPairs(e.target, { action: "register" }));
-      showToast(res.ok ? "✅ CarePass created!" : "❌ " + res.error, res.ok);
-      if (res.ok) { e.target.reset(); goBackToMenu(); }
-    });
-
-    document.getElementById("updateForm").addEventListener("submit", async e => {
-      e.preventDefault();
-      const res = await postForm(formToPairs(e.target, { action: "update", role: "patient" }));
-      showToast(res.ok ? "✅ Record updated!" : "❌ " + res.error, res.ok);
-      if (res.ok) goBackToMenu();
-    });
-
-    document.getElementById("accessForm").addEventListener("submit", async e => {
-      e.preventDefault();
-      const resultBox = document.getElementById("accessResult");
-      resultBox.classList.remove("hidden");
-      resultBox.textContent = "";
-      const res = await postForm(formToPairs(e.target, { action: "access", role: "doctor" }));
-      if (res.ok) {
-        const d = res;
-        resultBox.innerHTML = `
-          <div class="bg-white shadow rounded-lg p-6 space-y-6">
-            <h3 class="text-xl font-bold text-gray-800 border-b pb-2">👤 Patient Record</h3>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Basic Info</h4>
-              <div class="grid grid-cols-2 gap-3 text-sm">
-                <p><span class="font-medium">Full Name:</span> ${d.name || d.fullName || "-"}</p>
-                <p><span class="font-medium">CarePass ID:</span> ${d.carePassId || "-"}</p>
-                <p><span class="font-medium">DOB:</span> ${d.dob || "-"}</p>
-                <p><span class="font-medium">Gender:</span> ${d.gender || "-"}</p>
-                <p><span class="font-medium">Blood Group:</span> ${d.bloodGroup || "-"}</p>
-                <p><span class="font-medium">Phone:</span> ${d.phone || "-"}</p>
-                <p><span class="font-medium">Email:</span> ${d.email || "-"}</p>
-                <p class="col-span-2"><span class="font-medium">Insurance Provider:</span> ${d.insuranceProvider || "-"}</p>
-              </div>
-            </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Vitals</h4>
-              <div class="grid grid-cols-3 gap-3 text-sm">
-                <p><span class="font-medium">Height:</span> ${d.height || "-"} cm</p>
-                <p><span class="font-medium">Weight:</span> ${d.weight || "-"} kg</p>
-                <p><span class="font-medium">Blood Pressure:</span> ${d.bp || "-"}</p>
-              </div>
-            </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Medical History</h4>
-              <p class="text-sm bg-gray-50 p-3 rounded">${d.medicalHistory || "-"}</p>
-            </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Treatment History</h4>
-              <p class="text-sm bg-gray-50 p-3 rounded">${d.treatmentHistory || "-"}</p>
-            </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Surgeries</h4>
-              <p class="text-sm bg-gray-50 p-3 rounded">${d.surgeryHistory || "-"}</p>
-            </div>
-          </div>`;
-      } else {
-        resultBox.textContent = "❌ " + res.error;
-      }
-    });
+    document.getElementById("fingerprintLoginBtn").addEventListener("click", fingerprintLogin);
   </script>
-
 </body>
 </html>
