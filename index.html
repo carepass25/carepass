@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <link rel="icon" href="IMG_20250822_103325.png.jpg" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="icon" href="assets/IMG_20250822_103325.png.jpg" type="image/png" />
   <title>CarePass – Your Key to Secure Health Data</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -11,16 +12,14 @@
     .fade-enter-active { opacity: 1; transform: translateY(0); transition: all 0.6s ease; }
     .fade-exit { opacity: 1; transform: translateY(0); }
     .fade-exit-active { opacity: 0; transform: translateY(10px); transition: all 0.6s ease; }
-
     input, select, textarea, button { font-size: 16px; }
   </style>
 </head>
+
 <body class="bg-gray-50 font-sans">
 
-  <!-- Toast -->
   <div id="toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg shadow z-50"></div>
 
-  <!-- Loading -->
   <div id="loadingOverlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
     <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-3">
       <div class="w-10 h-10 border-4 border-blue-600 border-dashed rounded-full animate-spin"></div>
@@ -28,7 +27,6 @@
     </div>
   </div>
 
-  <!-- Menu -->
   <div id="menu-screen" class="max-w-lg mx-auto p-6 space-y-6">
     <h2 class="text-3xl font-bold text-center mb-6">💙 CarePass 🩺</h2>
     <div class="grid gap-4">
@@ -38,10 +36,8 @@
     </div>
   </div>
 
-  <!-- Main -->
   <main id="content" class="max-w-lg mx-auto p-4 sm:p-6 space-y-10 hidden">
-    
-    <!-- Register -->
+
     <section id="register" class="hidden bg-white p-4 sm:p-6 rounded-lg shadow">
       <button class="back-btn text-sm text-blue-600 underline mb-4">← Back to Menu</button>
       <h2 class="text-lg sm:text-xl font-semibold mb-4">🔐 Create Your CarePass</h2>
@@ -64,11 +60,10 @@
             <button type="button" id="scanNfcBtnReg" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
           </div>
         </div>
-        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded text-base">Create CarePass</button>
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded text-base">Create CarePass</button>
       </form>
     </section>
 
-    <!-- Update -->
     <section id="update" class="hidden bg-white p-4 sm:p-6 rounded-lg shadow">
       <button class="back-btn text-sm text-blue-600 underline mb-4">← Back to Menu</button>
       <h2 class="text-lg sm:text-xl font-semibold mb-4">📝 Update Your CarePass Record</h2>
@@ -99,11 +94,10 @@
         <input name="insuranceProvider" type="text" placeholder="Insurance Provider" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
         <input name="phone" type="tel" required placeholder="Phone" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
         <input name="email" type="email" required placeholder="Email" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <button class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded text-base">Save to CarePass</button>
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded text-base">Save to CarePass</button>
       </form>
     </section>
 
-    <!-- Doctor Access -->
     <section id="access" class="hidden bg-white p-4 sm:p-6 rounded-lg shadow">
       <button class="back-btn text-sm text-blue-600 underline mb-4">← Back to Menu</button>
       <h2 class="text-lg sm:text-xl font-semibold mb-4">🧑‍⚕ Doctor Access</h2>
@@ -112,18 +106,17 @@
           <input id="carePassIdInputAcc" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-indigo-400" />
           <button type="button" id="scanNfcBtnAcc" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
         </div>
-        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded text-base">Access Record</button>
+        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded text-base">Access Record</button>
       </form>
       <div id="accessResult" class="mt-6 hidden bg-gray-100 p-4 rounded-lg text-sm"></div>
     </section>
+
   </main>
 
-  <!-- Footer -->
   <footer class="text-center text-sm text-gray-500 p-4">
     CarePass: Your secure key to trusted healthcare.
   </footer>
 
-  <!-- Script -->
   <script>
     const GAS_URL = "https://script.google.com/macros/s/AKfycbxaF0yFiobRU927pBoyxInMjODx_mKJoQ7o7k6jRgzgV4PQh8oM8sfMeCesb4K7yUAN9w/exec";
     const loader = document.getElementById("loadingOverlay");
@@ -131,7 +124,6 @@
 
     function showLoader() { loader.classList.remove("hidden"); }
     function hideLoader() { loader.classList.add("hidden"); }
-
     function showToast(msg, success = true) {
       toast.textContent = msg;
       toast.className = `fixed bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg shadow z-50 ${success ? "bg-green-600" : "bg-red-600"} text-white`;
@@ -171,6 +163,7 @@
     document.querySelectorAll("#menu-screen button").forEach(btn => {
       btn.addEventListener("click", () => showSection(btn.dataset.target));
     });
+
     document.querySelectorAll(".back-btn").forEach(btn => {
       btn.addEventListener("click", goBackToMenu);
     });
@@ -195,7 +188,6 @@
       } finally { hideLoader(); }
     }
 
-    // ✅ NFC Function
     async function scanNFC(targetInputId) {
       if ("NDEFReader" in window) {
         try {
@@ -218,12 +210,10 @@
       }
     }
 
-    // Attach NFC buttons
     document.getElementById("scanNfcBtnReg").addEventListener("click", () => scanNFC("carePassIdInputReg"));
     document.getElementById("scanNfcBtnUpd").addEventListener("click", () => scanNFC("carePassIdInputUpd"));
     document.getElementById("scanNfcBtnAcc").addEventListener("click", () => scanNFC("carePassIdInputAcc"));
 
-    // Register Form
     document.getElementById("registerForm").addEventListener("submit", async e => {
       e.preventDefault();
       const res = await postForm(formToPairs(e.target, { action: "register" }));
@@ -231,7 +221,6 @@
       if (res.ok) { e.target.reset(); goBackToMenu(); }
     });
 
-    // Update Form
     document.getElementById("updateForm").addEventListener("submit", async e => {
       e.preventDefault();
       const res = await postForm(formToPairs(e.target, { action: "update", role: "patient" }));
@@ -239,7 +228,6 @@
       if (res.ok) goBackToMenu();
     });
 
-    // Access Form
     document.getElementById("accessForm").addEventListener("submit", async e => {
       e.preventDefault();
       const resultBox = document.getElementById("accessResult");
@@ -285,5 +273,6 @@
       }
     });
   </script>
+
 </body>
 </html>
