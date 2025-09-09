@@ -72,28 +72,81 @@
           <input id="carePassIdInputUpd" name="carePassId" type="password" required placeholder="Tap NFC card" class="flex-1 border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
           <button type="button" id="scanNfcBtnUpd" class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700">📡 Scan NFC</button>
         </div>
-        <input name="fullName" type="text" required placeholder="Full Name" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="dob" type="date" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <select name="gender" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400">
-          <option value="">Select Gender</option>
-          <option value="Male">Male ♂</option>
-          <option value="Female">Female ♀</option>
-          <option value="Other">Other ⚧</option>
-        </select>
-        <select name="bloodGroup" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400">
-          <option value="">Blood Group</option>
-          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
-          <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
-        </select>
-        <input name="height" type="number" placeholder="Height (cm)" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="weight" type="number" placeholder="Weight (kg)" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="bp" type="text" placeholder="Blood Pressure e.g. 120/80" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <textarea name="medicalHistory" placeholder="Medical History" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
-        <textarea name="treatmentHistory" placeholder="Treatment History" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
-        <textarea name="surgeryHistory" placeholder="Previous Surgeries" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
-        <input name="insuranceProvider" type="text" placeholder="Insurance Provider" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="phone" type="tel" required placeholder="Phone" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
-        <input name="email" type="email" required placeholder="Email" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+
+        <div>
+          <label class="block font-medium mb-1">Full Name:</label>
+          <input name="fullName" type="text" required placeholder="Full Name" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Date of Birth:</label>
+          <input name="dob" type="date" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Gender:</label>
+          <select name="gender" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400">
+            <option value="">Select Gender</option>
+            <option value="Male">Male ♂</option>
+            <option value="Female">Female ♀</option>
+            <option value="Other">Other ⚧</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Blood Group:</label>
+          <select name="bloodGroup" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400">
+            <option value="">Blood Group</option>
+            <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+            <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Height (cm):</label>
+          <input name="height" type="number" placeholder="Height (cm)" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Weight (kg):</label>
+          <input name="weight" type="number" placeholder="Weight (kg)" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Blood Pressure e.g. 120/80:</label>
+          <input name="bp" type="text" placeholder="Blood Pressure e.g. 120/80" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Medical History:</label>
+          <textarea name="medicalHistory" placeholder="Medical History" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Treatment History:</label>
+          <textarea name="treatmentHistory" placeholder="Treatment History" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Previous Surgeries:</label>
+          <textarea name="surgeryHistory" placeholder="Previous Surgeries" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400"></textarea>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Insurance Provider:</label>
+          <input name="insuranceProvider" type="text" placeholder="Insurance Provider" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Phone:</label>
+          <input name="phone" type="tel" required placeholder="Phone" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Email:</label>
+          <input name="email" type="email" required placeholder="Email" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-green-400" />
+        </div>
+
         <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded text-base">Save to CarePass</button>
       </form>
     </section>
@@ -251,21 +304,15 @@
                 <p class="col-span-2"><span class="font-medium">Insurance Provider:</span> ${d.insuranceProvider || "-"}</p>
               </div>
             </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Vitals</h4>
-              <div class="grid grid-cols-3 gap-3 text-sm">
-                <p><span class="font-medium">Height:</span> ${d.height || "-"} cm</p>
-                <p><span class="font-medium">Weight:</span> ${d.weight || "-"} kg</p>
+            <div><h4 class="font-semibold text-gray-700 mb-2">Medical Info</h4>
+              <div class="grid grid-cols-2 gap-3 text-sm">
+                <p><span class="font-medium">Height (cm):</span> ${d.height || "-"}</p>
+                <p><span class="font-medium">Weight (kg):</span> ${d.weight || "-"}</p>
                 <p><span class="font-medium">Blood Pressure:</span> ${d.bp || "-"}</p>
+                <p><span class="font-medium">Medical History:</span> ${d.medicalHistory || "-"}</p>
+                <p><span class="font-medium">Treatment History:</span> ${d.treatmentHistory || "-"}</p>
+                <p><span class="font-medium">Surgery History:</span> ${d.surgeryHistory || "-"}</p>
               </div>
-            </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Medical History</h4>
-              <p class="text-sm bg-gray-50 p-3 rounded">${d.medicalHistory || "-"}</p>
-            </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Treatment History</h4>
-              <p class="text-sm bg-gray-50 p-3 rounded">${d.treatmentHistory || "-"}</p>
-            </div>
-            <div><h4 class="font-semibold text-gray-700 mb-2">Surgeries</h4>
-              <p class="text-sm bg-gray-50 p-3 rounded">${d.surgeryHistory || "-"}</p>
             </div>
           </div>`;
       } else {
