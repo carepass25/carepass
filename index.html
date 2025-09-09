@@ -126,7 +126,7 @@
     function hideLoader() { loader.classList.add("hidden"); }
     function showToast(msg, success = true) {
       toast.textContent = msg;
-      toast.className = fixed bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg shadow z-50 ${success ? "bg-green-600" : "bg-red-600"} text-white;
+      toast.className = `fixed bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg shadow z-50 ${success ? "bg-green-600" : "bg-red-600"} text-white`;
       toast.classList.remove("hidden");
       setTimeout(() => toast.classList.add("hidden"), 2500);
     }
